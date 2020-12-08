@@ -1,0 +1,40 @@
+﻿<div class="sidebar" data-image="~/Areas/admin/adminroot/img/sidebar-5.jpg">
+    <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+    <div class="sidebar-wrapper">
+        <div class="logo">
+            <a href="" class="simple-text">
+                Lo go here
+            </a>
+        </div>
+        <ul class="nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="@Url.Action("Index", "Account")">
+                    <i class="nc-icon nc-chart-pie-35"></i>
+                    <p>Quản lý tài khoản</p>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="@Url.Action("Index", "Product")">
+                    <i class="nc-icon nc-circle-09"></i>
+                    <p>Quản lý sản phẩm</p>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="@Url.Action("Index", "Category")">
+                    <i class="nc-icon nc-notes"></i>
+                    <p>Quản lý danh mục</p>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="@Url.Action("Index", "Order")">
+                    <i class="nc-icon nc-paper-2"></i>
+                    <p>Quản lý đơn hàng</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
