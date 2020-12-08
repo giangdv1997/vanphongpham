@@ -1,0 +1,46 @@
+﻿@model Nhom1_VanPhongPham.Areas.admin.Models.TaiKhoan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h4>Thông tin tài khoản</h4>
+    <hr />
+    <table class="table">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Email)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Email)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.SDT)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.SDT)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.VaiTro)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.VaiTro)
+            </td>
+        </tr>
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaTaiKhoan }, new {@class="btn btn-sm btn-success" })
+    @Html.ActionLink("Back to List", "Index", null, new {@class="btn btn-sm btn-warning" })
+</p>

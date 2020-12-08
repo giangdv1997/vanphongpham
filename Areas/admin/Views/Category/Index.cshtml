@@ -1,32 +1,39 @@
-﻿@{
+﻿@model IEnumerable<Nhom1_VanPhongPham.Areas.admin.Models.DanhMuc>
+
+@{
+    ViewBag.Title = "Index";
     Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
 }
+
+<div class="row">
+    <button class="btn btn-success">Thêm</button>
+</div> 
+
 <table class="table table-sm table-hovered">
     <thead>
         <tr>
+            <th>Mã danh mục</th>
             <th>Tên danh mục</th>
-            <th>Collumn name</th>
-            <th>Collumn name</th>
+            <th>Mã danh mục cha</th>
             <th>Hành động</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in ViewBag.cats)
+        @foreach (var item in Model)
         {
             <tr>
                 <td>
-                    @item
+                    @item.MaDanhMuc
                 </td>
                 <td>
-                    Value here
+                    @item.TenDanhMuc
                 </td>
                 <td>
-                    Value here
+                    @item.MaCha
                 </td>
                 <td>
-                    <button class="btn btn-success">Thêm</button>
-                    <button class="btn btn-success">Sửa</button>
-                    <button class="btn btn-success">Xóa</button>
+                    @Html.ActionLink("Sửa", "Update", new { id = item.MaDanhMuc })
+                    @Html.ActionLink("Xóa","Delete", new { id = item.MaDanhMuc })
                 </td>
             </tr>
         }
