@@ -9,6 +9,12 @@ namespace Nhom1_VanPhongPham.Models
     [Table("SanPhamMauSac")]
     public partial class SanPhamMauSac
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public SanPhamMauSac()
+        {
+            ChiTietDonHangs = new HashSet<ChiTietDonHang>();
+        }
+
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -20,5 +26,12 @@ namespace Nhom1_VanPhongPham.Models
         public string MaMau { get; set; }
 
         public int SoLuongCon { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
+
+        public virtual MauSac MauSac { get; set; }
+
+        public virtual SanPham SanPham { get; set; }
     }
 }
