@@ -39,6 +39,7 @@ namespace Nhom1_VanPhongPham.Models
         public string AnhSanPham { get; set; }
 
         [Column(TypeName = "numeric")]
+        [DisplayFormat(DataFormatString = "{0:#,###}")]
         public decimal? GiaSanPham { get; set; }
 
         [StringLength(1000)]

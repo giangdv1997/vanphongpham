@@ -1,6 +1,10 @@
 ﻿<div class="header_slide">
     <div class="header_bottom_left">
-        @{ Html.RenderPartial("LeftCategory"); }
+        <div class="categories">
+            <h3>Danh mục</h3>
+            @{ Html.RenderAction("_CategoryList", "Home");}
+        </div>
+
     </div>
     <div class="header_bottom_right">
         @{ Html.RenderPartial("Slide"); }

@@ -48,11 +48,9 @@
             </div>
             <div class="desc span_3_of_2">
                 <h2>@Model.TenSanPham</h2>
-                <p>
-                    @Html.DisplayFor(m => Model.MoTa)
-                </p>
+                
                 <div class="price">
-                    <p>Price: <span>@Html.DisplayFor(m => Model.GiaSanPham)</span></p>
+                    <p>Giá: <span>@Html.DisplayFor(m => Model.GiaSanPham) VNĐ</span></p>
                 </div>
                 <div class="available">
                     <p>Tùy chọn :</p>
@@ -62,19 +60,13 @@
                             <select>
                                 @foreach (var color in Model.SanPhamMauSacs)
                                 {
-                                    <option>@color.MaMau</option>
+                                    <option><span style="background: @color.MaMau; width: 100px; height: 30px;"></span></option>
                                 }
 
                             </select>
                         </li>
                         <li>
-                            Quality:<select>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
+                            Số lượng: <input type="number" min="1" value="1"/>
                         </li>
                     </ul>
                 </div>
@@ -86,7 +78,7 @@
                             <li><a href="#"><img src="~/wwwroot/images/twitter.png" alt="" /></a></li>
                         </ul>
                     </div>
-                    <div class="button" style="background: none !important"><span><a href="#">Add to Cart</a></span></div>
+                    <div class="button" title="Thêm vào giỏ hàng" style="background: none !important"><img style="cursor: pointer" width="100" height="90" src="~/wwwroot/product-images/my-cart.png" /></div>
                     <div class="clear"></div>
                 </div>
                 <div class="wish-list">
@@ -179,59 +171,7 @@
                     fit: true   // 100% fit in a container
                 });
             });</script>
-        <div class="content_bottom">
-            <div class="heading">
-                <h3>Related Products</h3>
-            </div>
-            <div class="see">
-                <p><a href="#">Xem tất cả</a></p>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="section group">
-            <div class="grid_1_of_4 images_1_of_4">
-                <a href="#"><img src="~/wwwroot/img/5b924e1365082-3505_240x240.png" alt=""></a>
-                <div class="price" style="border:none">
-                    <div class="add-cart" style="float:none">
-                        <h4><a href="#">Add to Cart</a></h4>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </div>
-            <div class="grid_1_of_4 images_1_of_4">
-                <a href="#">
-                    <img src="~/wwwroot/img/butbithienlongflexofficefo02411large-7778_240x240.jpg"
-                         alt="">
-                </a>
-                <div class="price" style="border:none">
-                    <div class="add-cart" style="float:none">
-                        <h4><a href="#">Add to Cart</a></h4>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </div>
-            <div class="grid_1_of_4 images_1_of_4">
-                <a href="#">
-                    <img src="~/wwwroot/img/chuot-quang-khong-day-logitech-m170-3334_240x206.jpg"
-                         alt="">
-                </a>
-                <div class="price" style="border:none">
-                    <div class="add-cart" style="float:none">
-                        <h4><a href="#">Add to Cart</a></h4>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </div>
-            <div class="grid_1_of_4 images_1_of_4">
-                <img src="~/wwwroot/img/giay-pagi-373_240x208.jpg" alt="">
-                <div class="price" style="border:none">
-                    <div class="add-cart" style="float:none">
-                        <h4><a href="#">Add to Cart</a></h4>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </div>
-        </div>
+        @{ Html.RenderAction("_RelatedProducts", new { productName = Model.TenSanPham });}
     </div>
     @{
         Html.RenderPartial("RightSidebar");

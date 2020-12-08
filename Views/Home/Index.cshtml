@@ -8,6 +8,7 @@
         Html.RenderPartial("HeaderBottom");
     }
 }
+
 @foreach (var item in Model)
 {
     <div class="content_bottom">
@@ -23,14 +24,15 @@
         @foreach (var product in item.products)
         {
             <div class="grid_1_of_4 images_1_of_4">
-                <a href="preview.html"><img src="~/wwwroot/img/@product.AnhSanPham" alt="" /></a>
-                <h2>@product.TenSanPham</h2>
+                <a href="preview.html"><img src="~/wwwroot/product-images/@product.AnhSanPham" alt="" /></a>
+                <h2 style="overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 3; height: 38px;">@product.TenSanPham</h2>
                 <div class="price-details">
                     <div class="price-number">
-                        <p><span class="rupees">@product.GiaSanPham</span></p>
+                        <p><span class="rupees">@Html.DisplayFor(m => product.GiaSanPham) VNĐ</span></p>
                     </div>
                     <div class="add-cart">
-                        <h4><a href="@Url.Action("Preview", new { id = product.MaSanPham})">Add to Cart</a></h4>
+                        <h4><a href="@Url.Action("Preview", new { id = product.MaSanPham})">
+                                + Giỏ hàng</a></h4>
                     </div>
                     <div class="clear"></div>
                 </div>

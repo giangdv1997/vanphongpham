@@ -16,8 +16,8 @@ namespace Nhom1_VanPhongPham.Areas.admin
         {
             context.MapRoute(
                 "admin_default",
-                "admin/{controller}/{action}/{id}",
-                new { action = "Index", controller = "Default", id = UrlParameter.Optional }
+                "Admin/{controller}/{action}/{id}",
+                new { action = "Index", controller = "TaiKhoans", id = UrlParameter.Optional }
             );
         }
     }

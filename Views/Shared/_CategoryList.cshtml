@@ -1,0 +1,7 @@
+﻿@model List<Nhom1_VanPhongPham.Models.DanhMuc>
+<ul class="side-w3ls">
+    @foreach (var cat in Model)
+    {
+        <li><a href="#">@cat.TenDanhMuc</a></li>
+    }
+</ul>

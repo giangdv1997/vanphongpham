@@ -1,0 +1,43 @@
+﻿@model List<Nhom1_VanPhongPham.Models.SanPham>
+<div class="content_bottom">
+    <div class="heading">
+        <h3>Sản phẩm liên quan</h3>
+    </div>
+    <div class="see">
+        <p><a href="#">Xem tất cả</a></p>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="section group" style="overflow-x: auto; display: flex">
+    @foreach (var product in Model)
+    {
+        <div style="min-width: 200px;
+    display: block;
+    float: left;
+    margin: 1% 0 1% 1.6%;
+    box-shadow: 0px 0px 3px rgb(150, 150, 150);
+    -webkit-box-shadow: 0px 0px 3px rgb(150, 150, 150);
+    padding: 1.5%;
+    text-align: center;
+    position: relative;">
+            @{ 
+                String url = "default.jpg";
+                if (!String.IsNullOrEmpty(product.AnhSanPham))
+                {
+                    url = product.AnhSanPham;
+                }
+            }
+            <a href="#"><img style="width: 200px;" src="~/wwwroot/product-images/@url" alt=""></a>
+            <div style="margin: 5px 0 5px 0;">@product.TenSanPham</div>
+            <div class="price d-flex" style="border:none; display: flex; justify-content: space-around">
+                <div style="margin-top: 10px;">@Html.DisplayFor(m => product.GiaSanPham) VNĐ</div>
+                <div class="add-cart" style="float:none">
+                    <h4><a href="#">+ giỏ hàng</a></h4>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    }
+</div>
+
+@ViewBag.t
