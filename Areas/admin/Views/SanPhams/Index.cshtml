@@ -1,0 +1,68 @@
+﻿@model PagedList.IPagedList<Nhom1_VanPhongPham.Areas.admin.Models.SanPham>
+
+@using PagedList.Mvc
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css"/>
+
+<h2>Danh sách sản phẩm</h2>
+
+<p>
+    @Html.ActionLink("Thêm sản phẩm", "Create",null, new {@class="btn btn-sm btn-success" })
+</p>
+<form action="@Url.Action("Index")" method="post" class="form-inline">
+    <input name="search" placeholder="Tìm kiếm" class="form-control form-control-sm" value="@ViewBag.search" />
+    <button class="btn btn-sm btn-primary mx-3">Tìm kiếm</button>
+</form>
+<table class="table">
+    <tr>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Tổng số lượng
+        </th>
+        <th>
+            Xuất xứ
+        </th>
+        <th>
+            Đơn vị tính
+        </th>
+        <th>
+            Mã danh mục
+        </th>
+        <th>
+            Ảnh
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.TenSanPham
+        </td>
+        <td>
+            @item.TongSoLuong
+        </td>
+        <td>
+            @item.XuatXu
+        </td>
+        <td>
+            @item.DonViTinh
+        </td>
+        <td>
+            @item.MaDanhMuc
+        </td>
+        <td>
+            <img src="@Url.Content("~/wwwroot/img/" + item.AnhSanPham)" width="100px" height="70px" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaSanPham }, new { @class="btn btn-sm btn-warning" } )
+            @Html.ActionLink("Details", "Details", new { id=item.MaSanPham }, new { @class="btn btn-sm btn-success" } )
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaSanPham }, new { @class="btn btn-sm btn-danger" } )
+        </td>
+    </tr>
+}
+
+</table>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

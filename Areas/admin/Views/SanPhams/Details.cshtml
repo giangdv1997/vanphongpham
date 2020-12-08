@@ -1,0 +1,98 @@
+﻿@model Nhom1_VanPhongPham.Areas.admin.Models.SanPham
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h4>Thông tin sản phẩm</h4>
+    <hr />
+    <table class="table">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.TenSanPham)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.TenSanPham)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.TongSoLuong)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.TongSoLuong)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.XuatXu)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.XuatXu)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.QuyCach)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.QuyCach)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.DonViTinh)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.DonViTinh)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.MaDanhMuc)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.MaDanhMuc)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.AnhSanPham)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.AnhSanPham)
+            </td>
+        </tr>
+
+    </table>
+
+    <div class="my-3">
+        <label>Tùy chọn màu sắc</label>
+        @foreach (var spms in ViewBag.sanPhamMauSacList)
+        {
+            <div>
+                <input type="color" value="@spms.MaMau" readonly />
+                <input type="number" value="@spms.SoLuongCon" readonly />
+            </div>
+        }
+    </div>
+
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaSanPham }, new { @class = "btn btn-sm btn-primary" })
+    @Html.ActionLink("Quay về danh sách", "Index", null, new { @class = "btn btn-sm btn-warning" })
+</p>
