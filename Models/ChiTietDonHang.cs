@@ -29,5 +29,9 @@ namespace Nhom1_VanPhongPham.Models
         public int SoLuong { get; set; }
 
         public int? ThanhTien { get; set; }
+
+        public virtual DonHang DonHang { get; set; }
+
+        public virtual SanPhamMauSac SanPhamMauSac { get; set; }
     }
 }

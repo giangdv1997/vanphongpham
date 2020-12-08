@@ -11,7 +11,7 @@ namespace Nhom1_VanPhongPham.Areas.admin.Controllers
         // GET: admin/Default
         public ActionResult Index()
         {
-            return Redirect("Account/Index");
+            return Redirect("admin/Account/Index");
         }
     }
 }
