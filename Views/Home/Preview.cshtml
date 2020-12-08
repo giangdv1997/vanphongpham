@@ -1,4 +1,4 @@
-﻿
+﻿@model Nhom1_VanPhongPham.Models.SanPham
 @{
     ViewBag.Title = "Preview";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -30,7 +30,7 @@
 
 <div class="content_top">
     <div class="back-links">
-        <p><a href="index.html">Trang chủ</a> >>>> <a href="#">chi tiết sản phẩm</a></p>
+        <p><a href="index.html">Trang chủ</a> > <a href="#">chi tiết sản phẩm</a></p>
     </div>
     <div class="clear"></div>
 </div>
@@ -41,97 +41,30 @@
                 <div id="container">
                     <div id="products_example">
                         <div id="products">
-                            <div class="slides_container">
-                                <a href="#" target="_blank">
-                                    <img src="~/wwwroot/img/kep-buom-41mm-nhieu-mau-6046_240x208.5.jpg"
-                                         alt=" " />
-                                </a>
-                                <a href="#" target="_blank">
-                                    <img src="~/wwwroot/img/pin3aenergizer6461_3745_160x160.jpg" alt=" " />
-                                </a>
-                                <a href="#" target="_blank">
-                                    <img src="~/wwwroot/img/5b924e1365082-3505_240x240.png" alt=" " />
-                                </a>
-                                <a href="#" target="_blank">
-                                    <img src="~/wwwroot/img/img15374285511191537428566754-7558_240x216.20314389359.jpg"
-                                         alt=" " />
-                                </a>
-                                <a href="#" target="_blank">
-                                    <img src="~/wwwroot/img/hinh-9-2056_240x240.jpg"
-                                         alt=" " />
-                                </a>
-                                <a href="#" target="_blank">
-                                    <img src="~/wwwroot/img/giaya4dl7090baibangvotrang71min-8366_240x240.jpg"
-                                         alt=" " />
-                                </a>
-                            </div>
-                            <ul class="pagination">
-                                <li>
-                                    <a href="#">
-                                        <img src="~/wwwroot/img/kep-buom-41mm-nhieu-mau-6046_240x208.5.jpg"
-                                             alt=" " />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="~/wwwroot/img/pin3aenergizer6461_3745_160x160.jpg"
-                                             alt=" " />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="~/wwwroot/img/5b924e1365082-3505_240x240.png"
-                                             alt=" " />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="~/wwwroot/img/img15374285511191537428566754-7558_240x216.20314389359.jpg"
-                                             alt=" " />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="~/wwwroot/img/hinh-9-2056_240x240.jpg" alt=" " /></a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="~/wwwroot/img/giaya4dl7090baibangvotrang71min-8366_240x240.jpg"
-                                             alt=" " />
-                                    </a>
-                                </li>
-                            </ul>
+                            <img src="~/wwwroot/product-images/@Model.AnhSanPham"/>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="desc span_3_of_2">
-                <h2>Lorem Ipsum is simply dummy text </h2>
+                <h2>@Model.TenSanPham</h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                    incididunt ut labore.
+                    @Html.DisplayFor(m => Model.MoTa)
                 </p>
                 <div class="price">
-                    <p>Price: <span>$500</span></p>
+                    <p>Price: <span>@Html.DisplayFor(m => Model.GiaSanPham)</span></p>
                 </div>
                 <div class="available">
-                    <p>Available Options :</p>
+                    <p>Tùy chọn :</p>
                     <ul>
                         <li>
-                            Color:
+                            Màu:
                             <select>
-                                <option>Silver</option>
-                                <option>Black</option>
-                                <option>Dark Black</option>
-                                <option>Red</option>
-                            </select>
-                        </li>
-                        <li>
-                            Size:<select>
-                                <option>Large</option>
-                                <option>Medium</option>
-                                <option>small</option>
-                                <option>Large</option>
-                                <option>small</option>
+                                @foreach (var color in Model.SanPhamMauSacs)
+                                {
+                                    <option>@color.MaMau</option>
+                                }
+
                             </select>
                         </li>
                         <li>
@@ -174,42 +107,7 @@
                 <div class="resp-tabs-container">
                     <div class="product-desc">
                         <p>
-                            Lorem Ipsum is simply dummy text of the <span>
-                                printing and typesetting
-                                industry
-                            </span>. Lorem Ipsum has been the industry's standard dummy text
-                            ever since the 1500s, when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book. It has survived not only five
-                            centuries, but also the leap into electronic typesetting, remaining
-                            essentially unchanged.
-                        </p>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the
-                            1500s, <span>
-                                when an unknown printer took a galley of type and
-                                scrambled
-                            </span> it to make a type specimen book. It has survived not
-                            only five centuries, but also the leap into electronic typesetting,
-                            remaining essentially unchanged.Lorem Ipsum is simply dummy text of the
-                            printing and typesetting industry. Lorem Ipsum has been the industry's
-                            standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap into electronic
-                            typesetting, remaining essentially unchanged.Lorem Ipsum is simply dummy
-                            text of the printing and typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s, when an unknown printer
-                            took a galley of type and scrambled it to make a type specimen book.<span>
-                                It has survived not only five centuries
-                            </span>, but also the leap into
-                            electronic typesetting, remaining essentially unchanged.
-                        </p>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the
-                            1500s, when an unknown printer took a galley of type and scrambled it to
-                            make a type specimen book. It has survived not only five centuries, but also
-                            the leap into electronic typesetting, remaining essentially unchanged.
+                            @Html.DisplayFor(m => Model.MoTa)
                         </p>
                     </div>
 
@@ -274,7 +172,7 @@
             </div>
         </div>
         <script type="text/javascript">
-    $(document).ready(function () {
+            $(document).ready(function () {
                 $('#horizontalTab').easyResponsiveTabs({
                     type: 'default', //Types: default, vertical, accordion
                     width: 'auto', //auto or any width like 600px
