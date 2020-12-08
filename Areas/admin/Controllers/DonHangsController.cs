@@ -18,20 +18,8 @@ namespace Nhom1_VanPhongPham.Areas.admin.Controllers
         // GET: admin/DonHangs
         public ActionResult Index(int page = 1)
         {
-            var result = db.DonHangs.Join(
-               db.TaiKhoans,
-               donHang => donHang.MaTaiKhoan,
-               taiKhoan => taiKhoan.MaTaiKhoan,
-               (donHang, taiKhoan) => new
-               {
-                   donHang.MaDonHang,
-                   donHang.NgayTao,
-                   donHang.TongTien,
-                   taiKhoan.MaTaiKhoan,
-                   taiKhoan.Email,
-                   taiKhoan.SDT
-               }
-            ).OrderBy(item => item.NgayTao);
+            var result = db.DonHangs.Select(el => el)
+                .OrderBy(item => item.NgayTao);
             foreach(var item in result)
             {
                 Console.WriteLine(item);
