@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using Nhom1_VanPhongPham.Areas.admin.Dto;
 using Nhom1_VanPhongPham.Areas.admin.Models;
 using PagedList;
 
@@ -20,9 +21,9 @@ namespace Nhom1_VanPhongPham.Areas.admin.Controllers
         public ActionResult Index(int page = 1, string search = "")
         {
             ViewBag.search = search;
-            var sanPhams = db.SanPhams.Select(item=> item)
-            .OrderBy(item => item.MaSanPham)
-            .Where(item => item.TenSanPham.Contains(search));
+            var sanPhams = db.SanPhams.Select(item => item)
+                .OrderBy(item => item.MaSanPham)
+                .Where(item => item.TenSanPham.Contains(search));
             return View(sanPhams.ToPagedList(page, 10));
         }
 
@@ -76,9 +77,10 @@ namespace Nhom1_VanPhongPham.Areas.admin.Controllers
                 }
 
                 db.SanPhams.Add(sanPham);
+                db.SaveChanges();
 
                 //save color
-                if(colors != null && colors.Length > 0)
+                if (colors != null && colors.Length > 0)
                 {
                     string[] arrQuantity = quantities.Split(',');
                     string[] arrColor = colors.Split(',');
@@ -91,7 +93,6 @@ namespace Nhom1_VanPhongPham.Areas.admin.Controllers
 
                 return RedirectToAction("Index");
             }
-            db.SaveChanges();
             return View(sanPham);
         }
 

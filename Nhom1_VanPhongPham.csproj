@@ -144,6 +144,7 @@
     <Compile Include="Areas\admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\admin\Controllers\SanPhamsController.cs" />
     <Compile Include="Areas\admin\Controllers\TaiKhoansController.cs" />
+    <Compile Include="Areas\admin\Dto\SanPhamDTO.cs" />
     <Compile Include="Areas\admin\Models\ChiTietDonHang.cs" />
     <Compile Include="Areas\admin\Models\DanhMuc.cs" />
     <Compile Include="Areas\admin\Models\DonHang.cs" />

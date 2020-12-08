@@ -1,4 +1,4 @@
-﻿
+﻿@model PagedList.IPagedList<Nhom1_VanPhongPham.Areas.admin.Models.DonHang>
 
 @using PagedList.Mvc
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
@@ -28,29 +28,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            item.MaDonHang
-        </td>
-        <td>
-            item.NgayTao
-        </td>
-        <td>
-            item.TongTien
-        </td>
-        <td>
-            item.Email
-        </td>
-        <td>
-            item.SDT
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.MaDonHang }, new { @class = "btn btn-sm btn-success" })
-            @Html.ActionLink("Details", "Details", new { id = item.MaDonHang }, new {@class="btn btn-sm btn-primary" })
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaDonHang }, new {@class="btn btn-sm btn-danger" })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                item.MaDonHang
+            </td>
+            <td>
+                item.NgayTao
+            </td>
+            <td>
+                item.TongTien
+            </td>
+            <td>
+                item.Email
+            </td>
+            <td>
+                item.SDT
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaDonHang }, new { @class = "btn btn-sm btn-success" })
+                @Html.ActionLink("Details", "Details", new { id = item.MaDonHang }, new { @class = "btn btn-sm btn-primary" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaDonHang }, new { @class = "btn btn-sm btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
+
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
