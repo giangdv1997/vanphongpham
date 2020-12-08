@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+<table class="table table-sm table-hovered">
+    <thead>
+        <tr>
+            <th>Tên sản phẩm</th>
+            <th>Collumn name</th>
+            <th>Collumn name</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.products)
+        {
+            <tr>
+                <td>
+                    @item
+                </td>
+                <td>
+                    Value here
+                </td>
+                <td>
+                    Value here
+                </td>
+                <td>
+                    <button class="btn btn-success">Thêm</button>
+                    <button class="btn btn-success">Sửa</button>
+                    <button class="btn btn-success">Xóa</button>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
